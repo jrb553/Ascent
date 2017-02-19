@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,9 +93,20 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-
+            // temporary code to test global variable system
+            // code extracts value and displays via toast
+            GlobalVars gv = (GlobalVars)getApplicationContext();
+            Toast.makeText(MainActivity.this,
+                    "Example Variable Value = " + gv.getExampleVariable(), Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_send) {
+            // temporary code to test global variable system
+            // code changes value of example variable and displays confirmation message
+            Toast.makeText(MainActivity.this,
+                    "Example Variable Changed", Toast.LENGTH_LONG).show();
 
+            GlobalVars gv = (GlobalVars)getApplicationContext();
+            String eV = "Jack Brown";
+            gv.setExampleVariable(eV);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
